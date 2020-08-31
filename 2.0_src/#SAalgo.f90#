@@ -21,8 +21,8 @@ CONTAINS
     makeRectangle: DO
         rectangle%w = 2*igrnd(1,2)
         rectangle%h = 2*igrnd(1,2)
-        rectangle%r(1) = igrnd(-10,10)
-        rectangle%r(2) = igrnd(-10,10)
+        rectangle%r(1) = igrnd(-10,10)   !INCREASE THE DIFFERENCE IN THESE igrnd INPUTS 
+        rectangle%r(2) = igrnd(-10,10)   !IF YOU INCREASE THE AMOUNT OF RECTANGLES
         
         DO j=1, i-1
             IF (testR(rectangle, initialize(j)) .EQV. .FALSE.) CYCLE makeRectangle
@@ -56,7 +56,7 @@ CONTAINS
     END IF
    END FUNCTION testR
     
-
+OB
    
    !Returns false if inputted rectangles
    !have the same values

@@ -108,13 +108,11 @@ CONTAINS
     REAL :: df, c=1000, cMin=1, a=0.9999
     REAL(rk_mtmod) :: u
     INTEGER :: i=1, iMax=100, random, rectangle, rectangle2, j, a1=0,a2=0,a3=0
-
     
     CALL sgrnd(getseed(info=1))
     SA = x
     SAnew = x
-
-    PRINT *, "Initial footprint:", footp(x)
+    
     PRINT *, "Running SA algorithm..."
     
     MMC: DO
@@ -145,6 +143,7 @@ CONTAINS
             END DO
             a1 = a1+1
             SAnew(rectangle) = newRect
+            random = 1
         ELSE IF (random == 2) THEN !ROTATE
             rectangle = igrnd(1, SIZE(SA))
             newRect%r(1) = SA(rectangle)%r(1)
@@ -158,7 +157,7 @@ CONTAINS
             END DO
             SAnew(rectangle) = newRect
             a2 = a2 + 1
-        ELSE !SWAP
+        ELSE IF (random == 3) THEN !SWAP
             rectangle = igrnd(1, SIZE(SA))
             newRect2%r(1) = SA(rectangle)%r(1)
             newRect2%r(2) = SA(rectangle)%r(2)
@@ -181,11 +180,11 @@ CONTAINS
                     .AND. unequal(SA(rectangle), SA(j))) &
                     .OR. ((testR(newRect, SA(j)) .EQV. .FALSE.) &
                     .AND. unequal(SA(rectangle2), SA(j)) )) THEN
-                    CYCLE MMC
+                  CYCLE MMC
                 END IF
             END DO
-            SAnew(rectangle) = newRect2
-            SAnew(rectangle2) = newRect
+            SAnew(rectangle2) = newRect2
+            SAnew(rectangle) = newRect
             a3 = a3+1
             
         END IF
@@ -198,7 +197,20 @@ CONTAINS
         u = grnd()
         
         !STEP 7
-        IF (u < EXP(-df/c)) SA = SAnew
+        IF (u < EXP(-df/c)) THEN
+           
+           !   MADE FOR GUI
+           !--------------------------------
+           PRINT *, random
+           PRINT *, "Old:", SA(rectangle)
+           PRINT *, "New:", newRect
+           IF (random == 3) THEN
+              PRINT *, "Old:", SA(rectangle2)
+              PRINT *, "New: ", newRect2
+           END IF
+           !--------------------------------
+           SA = SAnew
+        END IF
         
         !STEP 8
         i = i+1
@@ -211,6 +223,7 @@ CONTAINS
         i = 1
     END DO MMC
     PRINT *, "| Moves:", a1, "| Rotations:",a2,"| Swaps:",a3,"|"
+    PRINT *, "Initial footprint:", footp(x)
     PRINT *, "Footprint after SA: ", footp(SA)
   END FUNCTION SA
 

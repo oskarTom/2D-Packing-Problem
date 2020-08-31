@@ -1,0 +1,4 @@
+PROGRAM test
+  PRINT *, "HELLO"
+  
+END PROGRAM test

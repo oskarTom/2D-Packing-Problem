@@ -112,12 +112,13 @@ CONTAINS
     CALL sgrnd(getseed(info=1))
     SA = x
     SAnew = x
+    
     PRINT *, "Running SA algorithm..."
     
     MMC: DO
         SAnew = SA
         !STEP 4
-        random = igrnd(1,3)
+        random = igrnd(1,2)
         IF (random == 1) THEN !MOVE
             rectangle = igrnd(1, SIZE(SA))
             newRect%r(1) = SA(rectangle)%r(1)
@@ -155,7 +156,7 @@ CONTAINS
             END DO
             SAnew(rectangle) = newRect
             a2 = a2 + 1
-        ELSE !SWAP
+        ELSE IF (random == 3) THEN !SWAP
             rectangle = igrnd(1, SIZE(SA))
             newRect2%r(1) = SA(rectangle)%r(1)
             newRect2%r(2) = SA(rectangle)%r(2)
@@ -178,11 +179,15 @@ CONTAINS
                     .AND. unequal(SA(rectangle), SA(j))) &
                     .OR. ((testR(newRect, SA(j)) .EQV. .FALSE.) &
                     .AND. unequal(SA(rectangle2), SA(j)) )) THEN
+                  PRINT
+
+ 
+
                     CYCLE MMC
                 END IF
             END DO
-            SAnew(rectangle) = newRect2
-            SAnew(rectangle2) = newRect
+            SAnew(rectangle2) = newRect2
+            SAnew(rectangle) = newRect
             a3 = a3+1
             
         END IF
@@ -195,7 +200,20 @@ CONTAINS
         u = grnd()
         
         !STEP 7
-        IF (u < EXP(-df/c)) SA = SAnew
+        IF (u < EXP(-df/c)) THEN
+           
+           !   MADE FOR GUI
+           !--------------------------------
+           PRINT *, random
+           PRINT *, "Old:", SA(rectangle)
+           PRINT *, "New:", newRect
+           IF (random == 3) THEN
+              PRINT *, "Old:", SA(rectangle2)
+              PRINT *, "New: ", newRect2
+           END IF
+           !--------------------------------
+           SA = SAnew
+        END IF
         
         !STEP 8
         i = i+1
