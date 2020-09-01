@@ -210,7 +210,7 @@ CONTAINS
            !   PRINT *, "New: ", newRect2
            !END IF
            !--------------------------------
-           SA = SAnew
+            SA = SAnew
         END IF
         
         !STEP 8
