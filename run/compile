@@ -1,2 +1,2 @@
-gfortran -c ../src/SA/mtfort90.f90 ../src/SA/SAalgo.f90 ../src/SA/PackingProblem.f90
-gfortran mtfort90.o SAalgo.o PackingProblem.o -o run
+gfortran -c ../src/SA/mtfort90.f90 ../src/SA/SAalgo.f90 ../src/SA/PackingProblem.f90  ../src/SA/rectangles.f90
+gfortran mtfort90.o SAalgo.o PackingProblem.o rectangles.o -o run
