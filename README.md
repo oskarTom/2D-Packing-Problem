@@ -68,6 +68,11 @@ Running the program returns two .dat files: initial.dat and result.dat. These fi
 
 By trying different values for <img src="https://render.githubusercontent.com/render/math?math=c_0"> and <img src="https://render.githubusercontent.com/render/math?math=\alpha"> I ended up setting <img src="https://render.githubusercontent.com/render/math?math=c_0"> to 1000 and <img src="https://render.githubusercontent.com/render/math?math=\alpha"> to 0.9999. I have attached two sets of problems solved by the SA algorithm. The first is run by generating 10 rectangles and the second by generating 30.
 
+![Initial set 1](https://github.com/oskarTom/2D-Packing-Problem/blob/master/images/Initial1.jpg)
+![Initial set 1](https://github.com/oskarTom/2D-Packing-Problem/blob/master/images/Final1.jpg)
+![Initial set 1](https://github.com/oskarTom/2D-Packing-Problem/blob/master/images/Initial2.jpg)
+![Initial set 1](https://github.com/oskarTom/2D-Packing-Problem/blob/master/images/Final2.jpg)
+
 The program is written to generate 10 rectangles, but a user can increase this amount in source code. When changing the amount of rectangles to be generated, it is advised to also increase the area in which they will be generated in `initialize` function in `SAalgo.f90` module. 
 
 ## Conclusions
