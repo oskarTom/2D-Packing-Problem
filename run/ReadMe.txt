@@ -1,5 +1,6 @@
-To run program, run the following:
+To compile and run the program, run the following:
 
+$ ./compile
 $ ./run
 
 
@@ -11,4 +12,5 @@ $ xgraph result.dat      (to graph the final configuration)
 
 
 If xgraph is not installed, run
+
 $ sudo apt install xgraph
