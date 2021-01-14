@@ -66,11 +66,11 @@ Running the program returns two .dat files: initial.dat and result.dat. These fi
 
 ## Results
 
-By trying different values for \(c_0\) and \(\alpha\) I ended up setting \(c_0\) to 1000 and \(\alpha\) to 0.9999. I have attached two sets of problems solved by the SA algorithm. The first is run by generating 10 rectangles and the second by generating 30.
+By trying different values for <img src="https://render.githubusercontent.com/render/math?math=c_0"> and <img src="https://render.githubusercontent.com/render/math?math=\alpha"> I ended up setting <img src="https://render.githubusercontent.com/render/math?math=c_0"> to 1000 and <img src="https://render.githubusercontent.com/render/math?math=\alpha"> to 0.9999. I have attached two sets of problems solved by the SA algorithm. The first is run by generating 10 rectangles and the second by generating 30.
 
-Algorithm can be changed to pack the rectangles without the gaps. The program is written to generate 10 rectangles, but a user can increase this amount in source code. When changing the amount of rectangles to be generated, it is advised to also increase the area in which they will be generated in `initialize` function in `SAalgo.f90` module. 
+The program is written to generate 10 rectangles, but a user can increase this amount in source code. When changing the amount of rectangles to be generated, it is advised to also increase the area in which they will be generated in `initialize` function in `SAalgo.f90` module. 
 
 ## Conclusions
 The algorithm seems to make noticeably fewer swaps, compared to moves or turns. This could imply that swapping two rectangles is more likely to cause overlapping than moving or rotating.
 
-The SA algorithm seems to find optimal footprints quite well. The algorithm could be made more efficient by finding better initial value for the control parameter \(c\) and the cooling parameter \(\alpha\).
+The SA algorithm seems to find optimal footprints quite well. The algorithm could be made more efficient by finding better initial value for the control parameter <img src="https://render.githubusercontent.com/render/math?math=c_0"> and the cooling parameter <img src="https://render.githubusercontent.com/render/math?math=\alpha">.
