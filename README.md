@@ -10,7 +10,6 @@ In this project, a technique called Simulated Annealing (SA) will be used to sol
 ## Methods
 Two-dimensional packing problem will be solved using simulated annealing (SA) algorithm. The algorithm employs a degree of randomness to achieve the global optimum, without stopping at a local optimum. The SA algorithm is executed by following steps:
 
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
 <ol>
     <li> Initialize the control parameter <img src="https://render.githubusercontent.com/render/math?math=c \leftarrow c_0"> </li>
