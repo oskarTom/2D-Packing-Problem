@@ -77,4 +77,4 @@ The program is written to generate 10 rectangles, but a user can increase this a
 ## Conclusions
 The algorithm seems to make noticeably fewer swaps, compared to moves or turns. This could imply that swapping two rectangles is more likely to cause overlapping than moving or rotating.
 
-The SA algorithm seems to find optimal footprints quite well. The algorithm could be made more efficient by finding better initial value for the control parameter <img src="https://render.githubusercontent.com/render/math?math=c_0"> and the cooling parameter <img src="https://render.githubusercontent.com/render/math?math=\alpha">.
+The SA algorithm seems to find optimal footprints quite well. The algorithm could be made more efficient by finding better initial value for the control parameter $c_0$ and the cooling parameter $\alpha$.
