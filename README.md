@@ -12,16 +12,16 @@ Two-dimensional packing problem will be solved using simulated annealing (SA) al
 
 
 <ol>
-    <li> Initialize the control parameter <img src="https://render.githubusercontent.com/render/math?math=c \leftarrow c_0"> </li>
-    <li> Initialize the system <img src="https://render.githubusercontent.com/render/math?math=x_i \leftarrow x_0"> </li>
-    <li> Set <img src="https://render.githubusercontent.com/render/math?math=i \leftarrow 1"> </li>
-    <li> Change the system configuration <img src="https://render.githubusercontent.com/render/math?math=x_i \leftarrow x_i %2B \delta x"> </li>
-    <li> Calculate the change in the cost function: <img src="https://render.githubusercontent.com/render/math?math=\delta f = f(x_i %2B \delta x) %2B f(x_i)"> </li>
-    <li> Generate a random number between 0 and 1: <img src="https://render.githubusercontent.com/render/math?math=\xi = [0,1["> </li>
-    <li> If <img src="https://render.githubusercontent.com/render/math?math=\xi < e^{- \frac{\delta f}{c}}">, accept the new configuration: <img src="https://render.githubusercontent.com/render/math?math=x_{i%2B1} \leftarrow x_i %2B \delta x"> </li>
-    <li> Set <img src="https://render.githubusercontent.com/render/math?math=i\leftarrow i%2B1">. If <img src="https://render.githubusercontent.com/render/math?math=i \leq i_{max}"> go to step 4. Otherwise go to next step </li>
-    <li> Decrease the control parameters: <img src="https://render.githubusercontent.com/render/math?math=c \leftarrow \alpha c">, <img src="https://render.githubusercontent.com/render/math?math=0 < \alpha < 1">. </li>
-    <li> If <img src="https://render.githubusercontent.com/render/math?math=c < c_{min}">, stop. Otherwise set <img src="https://render.githubusercontent.com/render/math?math=i\leftarrow 1"> and go to step 3. </li>
+    <li> Initialize the control parameter $c \leftarrow c_0$ </li>
+    <li> Initialize the system $x_i \leftarrow x_0$ </li>
+    <li> Set $i \leftarrow 1$ </li>
+    <li> Change the system configuration $x_i \leftarrow x_i + \delta x$ </li>
+    <li> Calculate the change in the cost function: $\delta f = f(x_i + \delta x) + f(x_i)$ </li>
+    <li> Generate a random number between 0 and 1: $\xi = [0,1[$ </li>
+    <li> If $\xi < e^{- \frac{\delta f}{c}}$, accept the new configuration: $x_{i+1} \leftarrow x_i + \delta x$ </li>
+    <li> Set $i\leftarrow i+1$. If $i \leq i_{max}$ go to step 4. Otherwise go to next step </li>
+    <li> Decrease the control parameters: $c \leftarrow \alpha c$, $0 < \alpha < 1$. </li>
+    <li> If $c < c_{min}$ stop. Otherwise set $i\leftarrow 1$ and go to step 3. </li>
 </ol>
 
 To generate random numbers, I will be using Mersenne twister (mtfort90.f90) module. The initial and final states of rectangles will be visualized by xgraph.
@@ -65,7 +65,7 @@ Running the program returns two .dat files: initial.dat and result.dat. These fi
 
 ## Results
 
-By trying different values for <img src="https://render.githubusercontent.com/render/math?math=c_0"> and <img src="https://render.githubusercontent.com/render/math?math=\alpha"> I ended up setting <img src="https://render.githubusercontent.com/render/math?math=c_0"> to 1000 and <img src="https://render.githubusercontent.com/render/math?math=\alpha"> to 0.9999. I have attached two sets of problems solved by the SA algorithm. The first is run by generating 10 rectangles and the second by generating 30.
+By trying different values for $c_0$ and $\alpha$ I ended up setting $c_0$ to 1000 and $\alpha$ to 0.9999. I have attached two sets of problems solved by the SA algorithm. The first is run by generating 10 rectangles and the second by generating 30.
 
 ![Initial set 1](https://github.com/oskarTom/2D-Packing-Problem/blob/master/images/Initial1.jpg)
 ![Initial set 1](https://github.com/oskarTom/2D-Packing-Problem/blob/master/images/Final1.jpg)
